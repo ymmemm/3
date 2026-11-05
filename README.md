@@ -22,8 +22,8 @@
 import cv2
 import numpy as np
 
-img_a = cv2.imread(r"E:\JupyterProject1\a.jpg")
-img_b = cv2.imread(r"E:\JupyterProject1\b.jpg")
+img_a = cv2.imread("a.jpg")
+img_b = cv2.imread("b.jpg")
 
 gray_a = cv2.cvtColor(img_a, cv2.COLOR_BGR2GRAY)
 gray_b = cv2.cvtColor(img_b, cv2.COLOR_BGR2GRAY)
@@ -72,15 +72,17 @@ cv2.namedWindow('Stitched Result', cv2.WINDOW_NORMAL)
 cv2.imshow('Stitched Result', stitched_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
-``` 
-## 三、实验结果与分析
+```
+## 三、实验原图展示
+<img src="a.jpg" width="45%"> <img src="b.jpg" width="45%">
+## 四、实验结果与分析
 特征检测与匹配效果：
 实验成功提取了图像的特征点并完成了匹配。由于图像纹理丰富，SIFT检测到了大量特征点，经过Lowe's比率测试后，保留下来的优质匹配点能够满足单应性矩阵的计算需求。
 
 图像拼接质量评估：
 单应性矩阵估计准确，拼接后的图像在重叠区域实现了较好的几何对齐，建筑物和树木的纹理基本吻合，没有出现明显的断裂或错位现象。但也存在因为透视变换产生的轻微黑边现象，这是正常的几何变换结果。
 
-## 四、实验总结与心得
+## 五、实验总结与心得
 技术收获：
 通过本次实验，我深入理解了SIFT特征检测算法的工作原理及其对尺度、旋转的鲁棒性。掌握了FLANN匹配器的使用以及Lowe's比率测试在提高匹配可靠性方面的作用。同时，也明白了单应性矩阵的估计是图像拼接的核心环节。
 
